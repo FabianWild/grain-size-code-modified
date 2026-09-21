@@ -71,17 +71,51 @@ Anpassungen betreffen hauptsächlich TensorFlow-/Keras-
 Kompatibilität, GPU-Speicherverwaltung, batchweise Inferenz
 und experimentabhängige Eingabeparameter.
 
+# GRAINet: Änderungen, Datenaufbereitung und Auswirkungen
+
+
+| Datei | Zeilen der verwendeten Fassung | Art | Bedeutung |
+|---|---:|---|---|
+| `helper.py` | 54–55 | Konfiguration | Standardgröße der Bildkacheln geändert |
+| `train_test.py` | 15–28, 37, 104, 115–116 | technische Anpassung | Mixed Precision, GPU-Speicherverwaltung, kleinere Validierungs-Batches, aktuelle Optimizer-Syntax |
+| `resnet_architecture.py` | 1–4, 166–179 | Kompatibilität | TensorFlow-2-/Keras-Kompatibilität; alte manuelle Gewichtsinitialisierung ersetzt |
+| `inference_bank.py` | 30, 78, 86–93, 112–127 | Inferenzanpassung | Kachelgröße, GSD, feste Modellgröße und speicherschonendere Vorhersage |
+| `CSV_to_NPZ.py` | gesamte Datei; zentral 21–52, 137–183, 196–230, 301–369 | eigenständige Datenaufbereitung | Erzeugung GRAINet-kompatibler NPZ-Daten aus Orthofoto und PebbleCounts-CSV |
+
+
+
+## Unveränderte GRAINet-Dateien
+
+Nach Normalisierung der Zeilenenden entsprechen folgende hochgeladene Dateien funktional exakt dem genannten Original-Commit:
+
+- `plots.py`
+- `loss_functions.py`
+- `preprocessing.py`
+- `test_vis.py`
+
+
 ## SediNet
 
-SediNet wurde erweitert um:
+# SediNet: Änderungen, Erweiterungen und Auswirkungen
 
-- projektspezifische CSV-Erstellung aus PebbleCountsAuto;
-- gekachelte Verarbeitung großer Orthofotos;
-- GeoTIFF-Ausgabe;
-- GPU-Speicherverwaltung;
-- flexiblere Verarbeitung der Modellgewichte.
+| Datei | Zeilen der verwendeten Fassung | Art | Bedeutung |
+|---|---:|---|---|
+| `defaults.py` | 19–22, 37 | Hyperparameter | Ensemble-Batchgrößen und Epochenzahl geändert |
+| `defaults-global.py` | 14–22, 37 | Hyperparameter/Eingabe | Bildgröße, Ensemble-Batchgrößen und Epochenzahl geändert |
+| `SediNet_csv_create.py` | gesamte Datei; zentral 7–16, 22–63, 75–104, 112–126 | eigenständige Datenaufbereitung | Erzeugung von P50-Labels und CSV-Splits |
+| `sedinet_eval.py` | 12–14, 218–267, 271–286, 294–330, 349–350 | technische/funktionale Anpassung | große Bilder, Gewichtsdateien, Pfadkorrektur und Ergebnisnormalisierung |
+| `sedinet_predict1image.py` | aktiver neuer Code 1–351; altes Original auskommentiert 354–545 | wesentliche Erweiterung | gekachelte GeoTIFF-Inferenz und räumliche Rasterausgabe |
 
-## Daten
+## Unveränderte SediNet-Dateien
 
-Orthofotos, PebbleCounts-Rohdaten, Modellgewichte und erzeugte
-Ergebnisdateien sind nicht Bestandteil dieses Repositories.
+Nach Normalisierung der Zeilenenden entsprechen folgende hochgeladene Dateien funktional exakt dem genannten Original-Commit:
+
+- `sedinet_train.py`
+- `imports.py`
+- `sedinet_predict.py`
+- `sedinet_predictfolder.py`
+- `sedinet_models.py`
+- `sedinet_utils.py`
+- `train_all.sh`
+- `sedinet_infer.py`
+
