@@ -47,7 +47,7 @@ Korndurchmesser dm.
 Bei SediNet wurde derselbe Zielwert in Millimetern in der
 Spalte `P50` gespeichert.
 
-## Datenaufbereitung
+## Skripts zur Datenaufbereitung (kein Bestandteil von SediNet/GRAINet)
 
 `preprocessing/CSV_to_NPZ.py` erzeugt aus einem Orthofoto und
 georeferenzierten PebbleCounts-Messungen den GRAINet-kompatiblen
@@ -68,8 +68,7 @@ benötigten Trainings- und Testtabellen.
 
 Die ursprüngliche Netzwerkarchitektur wurde nicht verändert.
 Anpassungen betreffen hauptsächlich TensorFlow-/Keras-
-Kompatibilität, GPU-Speicherverwaltung, batchweise Inferenz
-und experimentabhängige Eingabeparameter.
+Kompatibilität, GPU-Speicherverwaltung, und batchweise Inferenz aufgrund von Speichermanagement
 
 # GRAINet: Änderungen, Datenaufbereitung und Auswirkungen
 
@@ -80,7 +79,6 @@ und experimentabhängige Eingabeparameter.
 | `train_test.py` | 15–28, 37, 104, 115–116 | technische Anpassung | Mixed Precision, GPU-Speicherverwaltung, kleinere Validierungs-Batches, aktuelle Optimizer-Syntax |
 | `resnet_architecture.py` | 1–4, 166–179 | Kompatibilität | TensorFlow-2-/Keras-Kompatibilität; alte manuelle Gewichtsinitialisierung ersetzt |
 | `inference_bank.py` | 30, 78, 86–93, 112–127 | Inferenzanpassung | Kachelgröße, GSD, feste Modellgröße und speicherschonendere Vorhersage |
-| `CSV_to_NPZ.py` | gesamte Datei; zentral 21–52, 137–183, 196–230, 301–369 | eigenständige Datenaufbereitung | Erzeugung GRAINet-kompatibler NPZ-Daten aus Orthofoto und PebbleCounts-CSV |
 
 
 
@@ -102,13 +100,10 @@ Nach Normalisierung der Zeilenenden entsprechen folgende hochgeladene Dateien fu
 |---|---:|---|---|
 | `defaults.py` | 19–22, 37 | Hyperparameter | Ensemble-Batchgrößen und Epochenzahl geändert |
 | `defaults-global.py` | 14–22, 37 | Hyperparameter/Eingabe | Bildgröße, Ensemble-Batchgrößen und Epochenzahl geändert |
-| `SediNet_csv_create.py` | gesamte Datei; zentral 7–16, 22–63, 75–104, 112–126 | eigenständige Datenaufbereitung | Erzeugung von P50-Labels und CSV-Splits |
 | `sedinet_eval.py` | 12–14, 218–267, 271–286, 294–330, 349–350 | technische/funktionale Anpassung | große Bilder, Gewichtsdateien, Pfadkorrektur und Ergebnisnormalisierung |
 | `sedinet_predict1image.py` | aktiver neuer Code 1–351; altes Original auskommentiert 354–545 | wesentliche Erweiterung | gekachelte GeoTIFF-Inferenz und räumliche Rasterausgabe |
 
 ## Unveränderte SediNet-Dateien
-
-Nach Normalisierung der Zeilenenden entsprechen folgende hochgeladene Dateien funktional exakt dem genannten Original-Commit:
 
 - `sedinet_train.py`
 - `imports.py`
