@@ -68,7 +68,7 @@ benötigten Trainings- und Testtabellen.
 
 Die ursprüngliche Netzwerkarchitektur wurde nicht verändert.
 Anpassungen betreffen hauptsächlich TensorFlow-/Keras-
-Kompatibilität, GPU-Speicherverwaltung, und batchweise Inferenz aufgrund von Speichermanagement
+Kompatibilität, GPU-Speicherverwaltung, und batchweise Inferenz aufgrund von Speichermanagement auf schwächeren Systemen
 
 # GRAINet: Änderungen, Datenaufbereitung und Auswirkungen
 
@@ -84,7 +84,6 @@ Kompatibilität, GPU-Speicherverwaltung, und batchweise Inferenz aufgrund von Sp
 
 ## Unveränderte GRAINet-Dateien
 
-Nach Normalisierung der Zeilenenden entsprechen folgende hochgeladene Dateien funktional exakt dem genannten Original-Commit:
 
 - `plots.py`
 - `loss_functions.py`
