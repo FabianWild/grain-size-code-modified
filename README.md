@@ -15,6 +15,8 @@ Original repository:
 
 https://github.com/langnico/GRAINet
 
+nach Lang, Nico, Andrea Irniger, Agnieszka Rozniak, Roni Hunziker, Jan Dirk Wegner, and Konrad Schindler. "GRAINet: mapping grain size distributions in river beds from UAV images with convolutional neural networks." Hydrology and Earth System Sciences 25, no. 5 (2021): 2567-2597.
+
 Reference commit:
 
 `d33ae686e770ab95f99387ce5e70ab353607d7a9`
@@ -24,6 +26,8 @@ Reference commit:
 Original repository:
 
 https://github.com/DigitalGrainSize/SediNet
+
+nach Buscombe, D. (2019). SediNet: a configurable deep learning model for mixed qualitative and quantitative optical granulometry. Earth Surface Processes and Landforms 45 (3), 638-651.
 
 Reference commit:
 
