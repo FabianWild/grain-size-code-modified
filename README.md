@@ -77,7 +77,7 @@ Kompatibilität, GPU-Speicherverwaltung, und batchweise Inferenz aufgrund von Sp
 # GRAINet: Änderungen, Datenaufbereitung und Auswirkungen
 
 
-| Datei | Zeilen der verwendeten Fassung | Art | Bedeutung |
+| Datei | Zeilen | Art | Bedeutung |
 |---|---:|---|---|
 | `helper.py` | 54–55 | Konfiguration | Standardgröße der Bildkacheln geändert |
 | `train_test.py` | 15–28, 37, 104, 115–116 | technische Anpassung | Mixed Precision, GPU-Speicherverwaltung, kleinere Validierungs-Batches, aktuelle Optimizer-Syntax |
@@ -97,9 +97,11 @@ Kompatibilität, GPU-Speicherverwaltung, und batchweise Inferenz aufgrund von Sp
 
 ## SediNet
 
+Änderungen betreffen vor allem Erweiterung der Inferenz zur räumlichen Rasterausgabe
+
 # SediNet: Änderungen, Erweiterungen und Auswirkungen
 
-| Datei | Zeilen der verwendeten Fassung | Art | Bedeutung |
+| Datei | Zeilen | Art | Bedeutung |
 |---|---:|---|---|
 | `defaults.py` | 19–22, 37 | Hyperparameter | Ensemble-Batchgrößen und Epochenzahl geändert |
 | `defaults-global.py` | 14–22, 37 | Hyperparameter/Eingabe | Bildgröße, Ensemble-Batchgrößen und Epochenzahl geändert |
